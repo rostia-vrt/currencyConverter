@@ -13,7 +13,7 @@ function App() {
 
 
   useEffect( () => {
-    axios.get( "http://data.fixer.io/api/latest?access_key=0ce522574c9b9c51f85813161ed6c284")
+    axios.get( "http://data.fixer.io/api/latest?access_key=0ce522574c9b9c51f85813161ed6c284" || "https://data.fixer.io/api/latest?access_key=0ce522574c9b9c51f85813161ed6c284")
     .then(response => {
       setRates(response.data.rates)
     })
@@ -23,7 +23,7 @@ function App() {
 
   useEffect( () => {
 
-    if(!!rates) {
+    if(!rates) {
       handleAmount1Change(1)
     }
   }, [rates])
